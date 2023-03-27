@@ -11,4 +11,4 @@
 # other sensitive and custome files
 env.*.json
 
-DS_Store
+.DS_Store
