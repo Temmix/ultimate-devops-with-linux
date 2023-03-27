@@ -1,3 +1,4 @@
+.DS_Store
 # local .terraform dir
 .terraform/*
 
@@ -13,4 +14,3 @@ env.*.json
 
 10-Terraform/.terraform/*
 8-k8s/.DS_Store
-.DS_Store
