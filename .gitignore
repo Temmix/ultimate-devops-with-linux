@@ -12,7 +12,5 @@
 env.*.json
 
 10-Terraform/.terraform/*
-
-.DS_Store
-
 8-k8s/.DS_Store
+.DS_Store
