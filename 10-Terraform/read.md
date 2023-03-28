@@ -18,7 +18,7 @@ Check the difference between the current state and the desire state
     terraform plan
 
 Apply changes without confirming
-    terraform apply -auto-approve
+    terraform apply --auto-approve
 
 Best Practise , you should use terraform apply, as the code should represent the actual state of the code.
 Delete resource on the source code and call terraform apply.
@@ -33,3 +33,10 @@ If you want terraform to show some information about the resource create
 When you have different variable files, normally terraform will be looking for terraform.tfvars files, 
 in the absent of that, you have specify the variable file when executing terraform apply command
     terraform apply -var-file terraform-dev.tfvars
+
+When creating EC2, then you want to create key pair manually, you must have chmod 400, else let terraform create the key-pair
+    chmod 400 ~/.ssh/terra-ec2-key-pair.pem
+
+To ssh into the server
+    ssh -i  ~/.ssh/id_rsa ec2-user@13.41.73.45
+    ssh  ec2-user@13.41.73.45  // as id_rsa is the default ssh key 
