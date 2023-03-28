@@ -21,6 +21,8 @@ variable "my_ip" {}
 
 variable "instance_type" {}
 
+variable "private_key_location" {}
+
 resource "aws_vpc" "myapp-vpc" {
   cidr_block = var.vpc_cidr_block
   tags = {
@@ -137,7 +139,24 @@ resource "aws_instance" "myapp-server" {
   associate_public_ip_address = true
   key_name                    = aws_key_pair.ssh-key.key_name
 
-  user_data = file("entry-script.sh")
+  // user_data = file("entry-script.sh")
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    user        = "ec2-user"
+    private_key = file(var.private_key_location)
+  }
+
+  provisioner "file" {
+    source      = "entry-script.sh"
+    destination = "/home/ec2-user/entry-script-on-ec2.sh"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "export ENV=dev",
+      "mkdir newdir"
+    ]
+  }
   tags = {
     Name = "${var.env_prefix}-server"
   }
