@@ -14,3 +14,6 @@ env.*.json
 
 10-Terraform/.terraform/*
 8-k8s/.DS_Store
+
+# crash log file
+crash.log
