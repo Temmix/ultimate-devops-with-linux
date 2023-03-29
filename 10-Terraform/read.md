@@ -33,3 +33,6 @@ If you want terraform to show some information about the resource create
 When you have different variable files, normally terraform will be looking for terraform.tfvars files, 
 in the absent of that, you have specify the variable file when executing terraform apply command
     terraform apply -var-file terraform-dev.tfvars
+
+When using eks and it is setup on aws, use the following to connect the eks
+    aws eks update-kubeconfig --name myapp-eks-cluster --region eu-west-2

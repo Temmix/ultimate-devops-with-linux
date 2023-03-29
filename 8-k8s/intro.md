@@ -117,6 +117,8 @@ kubectl describe {pod-name}
 kubectl exec -it {pod-name} -- bash
 kubectl apply -f config-file.yaml
 
+DELETE ALL RESOURCES
+kubectl delete all --all
 
 FOR SECRET YAML
 converting username and password to base64 and insert this into secret.yaml file
