@@ -11,5 +11,6 @@ for clusterName in clusterNames:
     cluster_version = cluster_info['version']
 
     print(f"Cluster {clusterName} status is {cluster_status}")
+    print(f"Cluster {clusterName} version is {cluster_version}")
     print(f"Cluster endpoint is : {cluster_endpoint}")
 print("###################################################")
